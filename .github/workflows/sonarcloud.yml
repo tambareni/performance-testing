@@ -41,6 +41,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar \
-          -Dsonar.projectKey=your_github_username_your_project_name \
-          -Dsonar.organization=your_sonarcloud_organization \
+          -Dsonar.projectKey=neeraj94_performance-testing \
+          -Dsonar.organization=neeraj94 \
           -Dsonar.host.url=https://sonarcloud.io

@@ -19,6 +19,9 @@ public class TestController {
     @Autowired
     private PersonRepository personRepository;
 
+    @Autowired
+    private PersonRepository personRepository1;
+
     public TestController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
@@ -27,7 +30,8 @@ public class TestController {
     @GetMapping("/slow")
     public ResponseEntity<List<Person>> slowEndpoint() {
         List<Person> people = new ArrayList<>();
-
+        Person person1 = new Person();
+        //TO-DO:
         // Inefficient SQL: Fetch records one by one
         List<Long> ids = personRepository.findAllIds();
         for (Long id : ids) {
