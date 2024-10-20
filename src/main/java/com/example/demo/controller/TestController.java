@@ -28,7 +28,7 @@ public class TestController {
         this.personRepository = personRepository;
     }
 
-    // Slow endpoint: Inefficient SQL + Slow processing
+    // Slow endpoint: Inefficient SQL + Slow processing ok
     @GetMapping("/slow")
     public ResponseEntity<List<Person>> slowEndpoint() {
         people = new ArrayList<>();
