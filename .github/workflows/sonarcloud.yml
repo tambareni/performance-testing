@@ -41,6 +41,6 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: mvn sonar:sonar \
-          -Dsonar.projectKey=neeraj94_performance-testing \
-          -Dsonar.organization=neeraj94 \
+          -Dsonar.projectKey=tambareni_performance-testing \
+          -Dsonar.organization=tambareni \
           -Dsonar.host.url=https://sonarcloud.io
