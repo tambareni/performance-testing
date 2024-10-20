@@ -22,6 +22,8 @@ public class TestController {
     @Autowired
     private PersonRepository personRepository1;
 
+    List<Person> people;
+
     public TestController(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
@@ -29,7 +31,8 @@ public class TestController {
     // Slow endpoint: Inefficient SQL + Slow processing
     @GetMapping("/slow")
     public ResponseEntity<List<Person>> slowEndpoint() {
-        List<Person> people = new ArrayList<>();
+        people = new ArrayList<>();
+
         Person person1 = new Person();
         //TO-DO:
         // Inefficient SQL: Fetch records one by one
@@ -40,7 +43,8 @@ public class TestController {
 
         // Inefficient processing: Find prime numbers for each person ID (inefficient algorithm)
         for (Person person : people) {
-            findNthPrimeSlow(person.getId().intValue());
+            var primeNumber = findNthPrimeSlow(person.getId().intValue());
+            System.out.println(primeNumber);
         }
 
         return ResponseEntity.ok(people);
@@ -54,7 +58,8 @@ public class TestController {
 
         // Optimized processing: Efficient prime number calculation for each person ID
         for (Person person : people) {
-            findNthPrimeFast(person.getId().intValue());
+            var primeNumber = findNthPrimeFast(person.getId().intValue());
+            System.out.println(primeNumber);
         }
 
         return ResponseEntity.ok(people);
